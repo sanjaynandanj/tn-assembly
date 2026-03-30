@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://en.wikipedia.org/wiki/Ranipet_district\")",
+      "Bash(curl -s \"https://en.wikipedia.org/wiki/Tenkasi_district\")",
+      "WebFetch(domain:en.wikipedia.org)"
+    ]
+  }
+}
