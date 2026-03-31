@@ -152,14 +152,15 @@ export default function DistrictAnalysis() {
       {/* Stacked Bar - Seats by District */}
       <div className="bg-slate-800/60 backdrop-blur rounded-xl p-6 border border-slate-700">
         <h3 className="text-lg font-bold mb-4">Seats Won by Party per District</h3>
-        <ResponsiveContainer width="100%" height={500}>
-          <BarChart data={stackedData} layout="vertical" margin={{ left: 100 }}>
+        <ResponsiveContainer width="100%" height={Math.max(500, stackedData.length * 28)}>
+          <BarChart data={stackedData} layout="vertical" margin={{ left: 120 }}>
             <XAxis type="number" tick={{ fill: '#94a3b8', fontSize: 11 }} />
             <YAxis
               type="category"
               dataKey="district"
               tick={{ fill: '#94a3b8', fontSize: 11, cursor: 'pointer' }}
-              width={95}
+              width={115}
+              interval={0}
               onClick={(e) => {
                 const d = districtStats.find(ds => ds.district.replace(/_/g, ' ') === e?.value)
                 if (d) setSelected(d.district)
@@ -177,10 +178,10 @@ export default function DistrictAnalysis() {
       {/* Turnout by District */}
       <div className="bg-slate-800/60 backdrop-blur rounded-xl p-6 border border-slate-700">
         <h3 className="text-lg font-bold mb-4">Average Turnout % by District</h3>
-        <ResponsiveContainer width="100%" height={500}>
-          <BarChart data={turnoutData} layout="vertical" margin={{ left: 100 }}>
+        <ResponsiveContainer width="100%" height={Math.max(500, turnoutData.length * 28)}>
+          <BarChart data={turnoutData} layout="vertical" margin={{ left: 120 }}>
             <XAxis type="number" domain={[60, 85]} tick={{ fill: '#94a3b8', fontSize: 11 }} />
-            <YAxis type="category" dataKey="district" tick={{ fill: '#94a3b8', fontSize: 11 }} width={95} />
+            <YAxis type="category" dataKey="district" tick={{ fill: '#94a3b8', fontSize: 11 }} width={115} interval={0} />
             <Tooltip content={({ active, payload, label }) => {
               if (!active || !payload?.length) return null
               return (
