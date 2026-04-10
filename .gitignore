@@ -34,3 +34,9 @@ Thumbs.db
 
 # Vite
 *.local
+
+# Warroom
+warroom/.venv/
+warroom/warroom.db
+warroom/__pycache__/
+warroom/**/__pycache__/
