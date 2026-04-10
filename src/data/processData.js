@@ -64,10 +64,10 @@ export const districtStats = (() => {
   // Add constituency details
   const constMap = {}
   allCandidates.forEach(c => {
-    const key = c.Constituency_Name
+    const key = c.Constituency_No
     if (!constMap[key]) {
       constMap[key] = {
-        name: key,
+        name: c.Constituency_Name,
         no: c.Constituency_No,
         district: c.District_Name,
         type: c.Constituency_Type,
@@ -109,10 +109,10 @@ export const districtStats = (() => {
 export const constituencies = (() => {
   const map = {}
   allCandidates.forEach(c => {
-    const key = c.Constituency_Name
+    const key = c.Constituency_No
     if (!map[key]) {
       map[key] = {
-        name: key,
+        name: c.Constituency_Name,
         no: c.Constituency_No,
         district: c.District_Name,
         type: c.Constituency_Type,
